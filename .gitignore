@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /vendor
 =======
 vendor
@@ -8,3 +9,7 @@ vendor
 =======
 vendor
 >>>>>>> JhodanCorredor
+=======
+vendor
+.gitignore
+>>>>>>> Nini-Alejandra-Rios-Ardila

@@ -21,22 +21,15 @@ class UserController extends Controller
  * @var object $model protected que se heredan de esta 
  */
     protected $model;
-<<<<<<< HEAD
-    
-=======
 
     /**
      *  Constructor de la clase user model
      */
->>>>>>> JhodanCorredor
     function __construct()
     {
         $this->model = $this->model("User");
     }
 
-<<<<<<< HEAD
-    
-=======
 
     /**
      *  Método que muestra una lista de usuarios.
@@ -46,7 +39,6 @@ class UserController extends Controller
      *
      * @access public
      */
->>>>>>> JhodanCorredor
     function index()
     {
 
@@ -63,14 +55,10 @@ class UserController extends Controller
             "subtitulo" => "Somos MVC",
             'rows'      => $users
         ];
-<<<<<<< HEAD
-                
-=======
 
         /**
          *  redirigimos la vista y pasamos los datos de la data
          */
->>>>>>> JhodanCorredor
         $this->view("user", $data, 'app');
     }
 }
