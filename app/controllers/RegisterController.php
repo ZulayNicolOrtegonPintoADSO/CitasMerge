@@ -75,14 +75,15 @@ class RegisterController extends controller
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $errores['mail_error'] =  "El correo no es valido";
             }
-
-
-            $correo=$this->model->getEmail($email)  ;      
-            if(is_array($correo)&& isset ($correo)&&$correo==$email){
-
-                $errores['mail_duplicate']="El correo ya existe.";
+        }
+            $correo = $this->model->getEmail($email);
+            if (is_array($correo) && isset($correo) && $correo == $email) {
+                $errores['mail_duplicate'] =  "El correo ya existe";
             }
-            if ($this->model->getUsuario($name)['user_name'] == $name) {
+            // print_r($this->model->getUsuario($name));
+            // die();
+            $nombre =  $this->model->getUsuario($name);
+            if (is_array($nombre) && isset($nombre) && $nombre == $name) {
                 $errores['user_duplicate'] =  "El usuario ya existe";
             }
             
@@ -107,11 +108,8 @@ class RegisterController extends controller
                 ];
 
                 $transaccion =  $this->servicio->trsRegistro($valores);
-<<<<<<< HEAD
-                header('Location: '.URL.'/login');
-=======
-                header("location:".URL."/user");
->>>>>>> JarminthonRueda
+
+                header ('location: '.URL.'/admin');
                 
             } else {
                 $data = [
