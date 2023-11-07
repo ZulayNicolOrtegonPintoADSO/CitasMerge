@@ -109,12 +109,14 @@ function validate()
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $errores['mail_error'] = "El correo no es válido";
         }
-        if ($this->model->getEmail($email)['email'] == $email) {
-            $errores['mail_duplicate'] = "El correo ya existe";
-        }
-        if ($this->model->getUsuario($name)['user_name'] == $name) {
-            $errores['user_duplicate'] = "El usuario ya existe";
-        }
+        $correo = $this->model->getEmail($email);            
+            if (is_array($correo) && isset($correo) && $correo == $email) {
+                $errores['mail_duplicate'] =  "El correo ya existe";
+            }       
+            $nombre = $this->model->getUsuario($name);
+            if (is_array($nombre) && isset($nombre) && $nombre == $name) {
+                $errores['user_duplicate'] =  "El usuario ya existe";
+            }  
 
         if (empty($errores)) {
             // Si no hay errores, crea un arreglo con los valores del usuario y perfil.
@@ -134,6 +136,9 @@ function validate()
 
             // Realiza una transacción de registro a través del servicio.
             $transaccion =  $this->servicio->trsRegistro($valores);
+            
+            header('Location: '.URL.'/login');
+
         } else {
             // Si hay errores, crea un arreglo con los errores y muestra la página de registro nuevamente con los errores.
             $data = [

@@ -2,11 +2,11 @@
 
 /** Esta línea establece el espacio de nombres actual para el archivo de código */
 namespace Adso\controllers;
-use Adso\Libs\Controller;
 use Adso\libs\Permission;
 
 /** Esta línea importa la clase "controller" del espacio de nombres "Adso\Libs" */
-use Adso\Libs\controller;
+use Adso\Libs\Controller;
+
 /** Esta línea importa la clase "Permisson" del espacio de nombres "Adso\libs" */
 use Adso\libs\Permisson;
 
